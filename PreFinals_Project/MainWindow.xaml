@@ -1,0 +1,145 @@
+﻿<Window x:Class="PreFinals_Project.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PreFinals_Project"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:controls="clr-namespace:WpfMath.Controls;assembly=WpfMath"
+        mc:Ignorable="d"
+        Title="Polynomial Calculator" Height="800" Width="800"
+        WindowStartupLocation="CenterScreen"
+        Background="#243447"
+        ResizeMode="NoResize"
+        DataContext="{Binding Path=MainViewModel, Source={StaticResource Locator}}">
+    <Grid> 
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.2*"/>
+            <RowDefinition Height="0.7*"/>
+            <RowDefinition Height="0.7*"/>
+            <RowDefinition Height="0.7*"/>
+            <RowDefinition Height="0.7*"/>
+            <RowDefinition Height="0.7*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <TextBox 
+            Text="{Binding FirstPolynomialString, UpdateSourceTrigger=PropertyChanged}"
+            materialDesign:HintAssist.Hint="First Polynomial"
+            Grid.Row="1"
+            Grid.ColumnSpan="2"
+            Foreground="White"
+            Margin="20,10,20,5"
+            VerticalContentAlignment="Bottom"
+            HorizontalContentAlignment="Left"
+            FontSize="14"
+            AcceptsReturn="False"
+            Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+        />
+        <TextBox Text="{Binding SecondPolynomialString, UpdateSourceTrigger=PropertyChanged}"
+                 materialDesign:HintAssist.Hint="Second Polynomial"
+                 Grid.Row="2"
+                 Grid.ColumnSpan="2"
+                 Margin="20,10,20,5"
+                 VerticalContentAlignment="Bottom"
+                 HorizontalContentAlignment="Left"
+                 FontSize="14"
+                 Foreground="White"
+                 AcceptsReturn="False"
+                 Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+        <TextBox
+            Grid.ColumnSpan="2"
+            IsTabStop="False"
+            IsReadOnly="True"
+            AcceptsReturn="False"
+            AcceptsTab="False"
+            IsHitTestVisible="False"
+            Grid.Column="0" 
+            Grid.Row="5" 
+            VerticalContentAlignment="Bottom"
+            FontSize="20"
+            Margin="20,10,20,5"
+            materialDesign:HintAssist.Hint="Result " 
+            Foreground="White"
+            Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+        <controls:FormulaControl
+            Margin="20,10,20,5"
+            Grid.Column="0" 
+            Grid.ColumnSpan="2" 
+            Grid.Row="6" 
+            SnapsToDevicePixels="True"
+            IsTabStop="False"
+            VerticalContentAlignment="Center"
+            Background="AntiqueWhite"
+            HorizontalContentAlignment="Center"
+            Formula="{Binding Result, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBox Grid.Row="7" Grid.ColumnSpan="2" Grid.Column="0"
+                 Margin="20,10,20,5"
+                 IsReadOnly="True"
+                 Foreground="White"
+                 VerticalContentAlignment="Bottom"
+                 HorizontalContentAlignment="Left"
+                 FontSize="20"
+                 IsHitTestVisible="False" 
+                 AcceptsReturn="False"
+                 AcceptsTab="False"
+                 IsTabStop="False"
+                 materialDesign:HintAssist.Hint="Solution"
+                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+        <controls:FormulaControl
+            Margin="20,10,20,20"
+            Grid.Column="0" 
+            Background="AntiqueWhite"
+            Grid.ColumnSpan="2" 
+            Grid.Row="8"
+            Grid.RowSpan="2"
+            VerticalContentAlignment="Center"
+            SnapsToDevicePixels="True"
+            IsTabStop="False"
+            HorizontalContentAlignment="Center"
+            FontSize="14"
+            
+            Formula="{Binding SolutionText, UpdateSourceTrigger=PropertyChanged}"/>
+        <ComboBox 
+                  Grid.Row="3"
+                  Grid.ColumnSpan="2"
+                  Foreground="White"
+                  materialDesign:HintAssist.Hint="Operation"
+                  Margin="20,5,20,-5"
+                  VerticalContentAlignment="Center"
+                  HorizontalContentAlignment="Left"
+                  FontSize="14"
+                  SelectedItem="{Binding OperationToUse}"
+                  ItemsSource="{Binding PolynomialOperations}"
+                  Style="{StaticResource MaterialDesignFloatingHintComboBox}">
+        </ComboBox>
+        <Button Grid.Row="4"
+                Command="{Binding CalculateCommand}"
+                IsEnabled="{Binding IsCalculateCommandEnabled, UpdateSourceTrigger=PropertyChanged}"
+                Style="{StaticResource MaterialDesignRaisedLightButton}"
+                Width="100"
+                Margin="0,0,20,0"
+                Background="#0086ad"
+                Foreground="White"
+                HorizontalAlignment="Right"
+                ToolTip="Resource name: MaterialDesignRaisedLightButton"> Calculate
+    </Button>
+        <Button Grid.Row="4"
+                Grid.Column="1"
+                Margin="20,0,0,0"
+                Background="#0086ad"
+                Foreground="White"
+                Command="{Binding ResetCommand}"
+                Style="{StaticResource MaterialDesignRaisedLightButton}"
+                Width="100"
+                ToolTip="Resource name: MaterialDesignRaisedLightButton"
+                HorizontalAlignment="Left"> Reset
+        </Button>
+    </Grid>
+</Window>
