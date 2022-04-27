@@ -8,32 +8,24 @@ This program is designed to handle basic polynomial arithmetic – addition, sub
 HOW TO USE THE PROGRAM:
 
 
-![](https://user-images.githubusercontent.com/45276381/165644492-84223f8b-9685-4e71-b281-66b3029fcbc6.png)
-  
 To use the program, one must enter polynomials represented on string on the respective fields and select the desired operation. The program is designed to handle any kind of representing polynomials, such as representing exponents with ‘^’ or directly inputting exponents, e.g. 3x2 (3x^2). The program will throw an error if the representation is not consistent on each term, or if basic polynomial rules are violated – e.g. exponents are negative.
 
 
 
 *Initial display of the program.*
-  
-
-![](https://user-images.githubusercontent.com/45276381/165644437-cbae9173-091e-4bfc-9c0f-851ea78742cd.png)
+![image](https://user-images.githubusercontent.com/45276381/165645914-a775b523-0584-411a-bcf8-7e0c7d18ba84.png)
 
 
 
 *Program can accept both forms, as long as consistency is followed.*
-  
-
-![](https://user-images.githubusercontent.com/45276381/165644585-cbaee45b-785c-438e-a839-eabb31b653f6.png)
+![image](https://user-images.githubusercontent.com/45276381/165646013-0b72bb45-f9af-41e9-87ee-95e07daa7fb3.png)
+![image](https://user-images.githubusercontent.com/45276381/165646008-554a072e-5a0c-4c3b-873b-1bfe64880ef4.png)
 
 
 
 *Pressing “Calculate” yields the following results.*
-  
-
-![](https://user-images.githubusercontent.com/45276381/165644547-2d9b210e-6e91-4f97-be94-585096e4dc7a.png)
-
-
+![image](https://user-images.githubusercontent.com/45276381/165646050-8c664860-c897-44cb-840f-a7e21e6d71af.png)
+ 
 
 ADDITIONAL FEATURES:
 
